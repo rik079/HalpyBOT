@@ -88,7 +88,7 @@ async def cmd_serverstat(ctx: Context, args: List[str]):
         response = requests.get("https://hosting.zaonce.net/launcher-status/status.json")
         responses = response.json()
     except requests.exceptions.RequestException as er:
-        logger.error(f"EDSM: Error in Elite Server Status lookup: {er}", exc_info=True)
+        logger.error(f"Error in Elite Server Status lookup: {er}", exc_info=True)
         raise EDSMConnectionError("Unable to verify Elite Status, having issues connecting to the Elite API.")
     if len(responses) == 0:
         await ctx.reply("ERROR! Elite returned an empty reply.")
